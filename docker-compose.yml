@@ -13,6 +13,7 @@ services:
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - xpack.license.self_generated.type=trial
       - xpack.security.http.ssl.enabled=true
+      - ELASTIC_PASSWORD=${PASSELASTICSEARCH}
       - xpack.security.http.ssl.key=${ESCERTSDIR}/es01.key
       - xpack.security.http.ssl.certificate_authorities=${ESCERTSDIR}/rootCA.pem
       - xpack.security.http.ssl.certificate=${ESCERTSDIR}/es01.crt
