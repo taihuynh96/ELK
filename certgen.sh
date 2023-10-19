@@ -41,4 +41,4 @@ openssl x509 -req -passin pass:"$1" -in es03.csr -CA rootCA.pem -CAkey rootCA.ke
 openssl req -subj "/C=US/ST=Random/L=Random/O=Global Security/OU=IT Department/CN=localhost"  -new -sha256 -nodes -out kib01.csr -newkey rsa:2048 -keyout kib01.key
 openssl x509 -req -passin pass:"$1" -in kib01.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateserial -out kib01.crt -days 500 -sha256 -extfile  <(printf "subjectAltName=DNS:localhost,DNS:kib01")
 
-VERSION="8.7.0" HOSTCERTSDIR="$PWD" ESCERTSDIR="/usr/share/elasticsearch/config" KIBCERTSDIR="/usr/share/kibana/config" docker-compose up -d
+VERSION="8.7.0" HOSTCERTSDIR="$PWD" ESCERTSDIR="/usr/share/elasticsearch/config" PASSELASTICSEARCH="12345@ABC" KIBCERTSDIR="/usr/share/kibana/config" docker-compose up -d
